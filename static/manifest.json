@@ -1,0 +1,12 @@
+{
+  "name": "Done Tracker",
+  "description": "Set a page as done to remind yourself that you are finished with it if you return to it.",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "permissions": [],
+  "host_permissions": [],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": []
+}
