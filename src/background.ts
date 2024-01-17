@@ -8,7 +8,7 @@ chrome.action.onClicked.addListener(async (tab) => {
     const doneItemsBefore = await getDoneItems()
     const doneItemsAfter: DoneItemsType =
         doneItemsBefore == null
-            ? [url]
+            ? [normalizeUrl(url)]
             : doneItemsBefore.some(item => urlEquals(url, item))
                 ? [...doneItemsBefore.filter(item => !urlEquals(url, item))]
                 : doneItemsBefore.concat([normalizeUrl(url)])

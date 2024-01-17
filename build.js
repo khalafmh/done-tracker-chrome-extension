@@ -26,13 +26,15 @@ esbuild.build({
     })
 
 function copyDirRecursive(dir, dest) {
+    if (!fs.existsSync(dest)) {
+        fs.mkdirSync(dest)
+    }
     fs.readdirSync(dir).forEach(file => {
         const p = path.join(dir, file)
         if (fs.lstatSync(p).isDirectory()) {
-            fs.mkdirSync(path.join(dest, file))
             copyDirRecursive(p, path.join(dest, file))
         } else {
             fs.copyFileSync(p, path.join(dest, file))
         }
-    })
+    });
 }
